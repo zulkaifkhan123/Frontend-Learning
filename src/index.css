@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+#card{
+    border: 1px solid black;
+    margin: 5px;
+    padding-left: 10px;
+    width: 500px;
+    
+}
