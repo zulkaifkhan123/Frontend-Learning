@@ -1,3 +1,4 @@
+# This is Frontend Learning Repo .. here i Practice React.js concepts.
 # notes for currency converter app (component)
 
 ## api link
