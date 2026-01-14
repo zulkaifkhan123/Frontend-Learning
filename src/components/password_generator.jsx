@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState , useEffect , useCallback } from 'react'
+import { useState , useEffect , useCallback , useRef } from 'react'
 
 
 function PasswordGenerator() {
@@ -7,6 +7,11 @@ function PasswordGenerator() {
     let [allowNumber , setAllowNumber] = useState(false);
     let [allowSpecialCharactors , setallowSpecialCharactors] = useState(false);
     let [password , setPassword] = useState("");
+    let refrence = useRef(null);
+    let copyPasswordToClipboard = () =>{
+      refrence.current.select()
+      window.navigator.clipboard.writeText(password);
+    }
 
     let GeneratePassword = useCallback(()=>{
       let pass = "";
@@ -36,9 +41,10 @@ function PasswordGenerator() {
             className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
+            ref={refrence}
         />
         <button
-        // onClick={copyPasswordToClipboard}
+        onClick={copyPasswordToClipboard}
         className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
         >copy</button>
         
@@ -48,7 +54,7 @@ function PasswordGenerator() {
         <input 
         type="range"
         min={6}
-        max={10}
+        max={100}
         value={length}
          className='cursor-pointer'
          onChange={(e) => {setLength(e.target.value)}}
