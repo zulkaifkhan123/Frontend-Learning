@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
+import axios from "axios";
 
 function Github() {
+
   const data = useLoaderData();
 
   if (!data) {
@@ -93,7 +95,7 @@ function Github() {
 export default Github;
 
 export let getInfo = async () => {
-  let res = await fetch("https://api.github.com/users/zulkaifkhan123");
+  let res = await axios.get("https://api.github.com/users/zulkaifkhan123");
   if (!res.ok) throw new Error("Failed to fetch GitHub data");
   return res.json();
 };

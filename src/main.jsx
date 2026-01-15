@@ -8,6 +8,7 @@ import About from './Router/About'
 import Contact from './Router/Contact'
 import Github from './Router/Github'
 import { getInfo } from './Router/Github'
+import Context_Provider from './context/Context_Provider'
 
 let router = createBrowserRouter([
   {
@@ -37,6 +38,8 @@ let router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Context_Provider>
     <RouterProvider router={router}/>
+    </Context_Provider>
   </StrictMode>,
 )

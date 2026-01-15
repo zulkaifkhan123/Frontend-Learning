@@ -1,13 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../context/User_context";
+
+
+
 function Home() {
+  let {user} = useContext(UserContext);
   return (
     <div className="bg-black text-white">
 
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 md:px-20">
         <h1 className="text-4xl md:text-6xl font-bold text-amber-300 mb-4">
-          Welcome to Niki
+          Welcome to Niki - {user}
         </h1>
         <p className="text-gray-300 text-lg md:text-xl mb-8">
           Your favorite platform for amazing content and insights.
